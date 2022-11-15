@@ -133,7 +133,7 @@ func (db *dbConnection) updateData(key, value, fileName string) error {
 
 func SetupdbConnection(storageLoaction string) DbClient {
 	var client DbClient = &dbConnection{storageLoaction}
-	//For encapsulation only, user of this package will be only able to access 3 exposed methods
+	//For encapsulation only, user of this package will be only able to access 3 exposed methods.
 	//Further we can create as many receiver functions as we can, which will be not accessible to the outside world
 	indexLocation := fmt.Sprintf("%s/index.json", storageLoaction)
 	fmt.Println("file ", indexLocation)
