@@ -17,13 +17,13 @@ err = client.Update("name1", "mohan")
 if err != nil {
 	fmt.Println(err)
 }
-val, err := t.Get("name1")
+val, err := client.Get("name1")
 fmt.Println(val, err)
 ```
 
 ## Features
-DB will create an index file which will store all the indexes and also created a folder called "dbFiles" which will host all the files in which actual data will exist. Each file in that folder should not exceed size limit of 1mb(configurable). Once this size limit exceeds our code will create new file to store new data.
-Index file will store data like this : {key : location of file}
+The database will produce an index file to keep all the indexes and a folder called "dbFiles" to house all the files containing the actual data.  
+There is a 1 MB size restriction on each file in that folder (configurable). Our code will generate a new file to hold fresh data once this size restriction is exceeded. Index file will store data like this : {key : location of file}
 - Get :
     - First checks key in the index file.
     - If key is not found return "Key not found"
